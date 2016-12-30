@@ -41,8 +41,6 @@ Layer::Layer(QQuickItem *parent)
     : Entity(parent)
     , m_type(Layer::Infinite)
 {
-    // this activates the item layered mode
-    QQmlProperty(this, "layer.enabled").write(true);
 }
 
 //! Class destructor
@@ -79,6 +77,14 @@ void Layer::setLayerType(const Layer::LayerType &type)
 void Layer::geometryChanged(const QRectF &newGeometry, const QRectF &oldGeometry)
 {
     QQuickItem::geometryChanged(newGeometry, oldGeometry);
+}
+
+void Layer::componentComplete()
+{
+    // this activates the item layered mode
+    QQmlProperty(this, "layer.enabled").write(true);
+
+    QQuickItem::componentComplete();
 }
 
 void Layer::update(const int &delta)

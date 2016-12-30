@@ -248,19 +248,24 @@ QSGNode *ImageLayer::updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *)
         // simple workaround to deal with resizing
         // works when imageWidth > imageHeigth; should test when dealing with vertical scrolling images
         // FAIL: it doesn't work when resizing to a width > that imageWidth :'(
-        qreal factor = m_imageWidth / m_imageHeight;
-        qreal w = height() * factor;
-        qreal h = height();
-        qreal _y = 0;
+//        qreal factor = m_imageWidth / m_imageHeight;
+//        qreal w = height() * factor;
+//        qreal h = height();
+        qreal w = m_imageWidth;
+        qreal h = m_imageHeight;
+
+        if(height() > m_imageHeight) {
+            h = height();
+        }
+
         if(width() > m_imageWidth) {
-            h *= factor+1;
-            h = m_imageHeight;
+            //h *= factor+1;
+            //h = m_imageHeight;
             w = width();
-//            _y = height();
         }
 
 
-        QRectF r(0, _y, w, h);
+        QRectF r(0, 0, w, h);
 
         n->setRect(r);
         m_geometryChanged = false;
@@ -278,11 +283,6 @@ void ImageLayer::geometryChanged(const QRectF &newGeometry, const QRectF &oldGeo
     m_geometryChanged = true;
 
     QQuickItem::update();
-}
-
-void ImageLayer::componentComplete()
-{
-    Layer::componentComplete();
 }
 
 void ImageLayer::setContentGeometry(const QRectF &geometry)

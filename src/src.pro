@@ -113,4 +113,4 @@ DISTFILES += \
     src.pri
 
 RESOURCES += \
-    qml.qrc
+    bacon_qml.qrc

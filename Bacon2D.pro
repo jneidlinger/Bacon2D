@@ -5,8 +5,6 @@ TEMPLATE = subdirs
 SUBDIRS += src \
     tests \
     examples\
-    doc
-
 
 PROJECT_NAME = bacon2d
 PROJECT_VERSION = 0.90.7.1

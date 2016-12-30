@@ -127,9 +127,6 @@ signals:
 protected:
     void geometryChanged(const QRectF &newGeometry, const QRectF &oldGeometry);
 
-protected:
-    void componentComplete();
-
 private:
     QUrl m_source;
 

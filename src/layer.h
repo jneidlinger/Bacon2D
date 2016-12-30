@@ -68,6 +68,7 @@ signals:
 
 protected:
     void geometryChanged(const QRectF &newGeometry, const QRectF &oldGeometry);
+    void componentComplete();
     void updateEntities(const int &delta);
 
     bool m_isAnimated;
