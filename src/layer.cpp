@@ -79,12 +79,10 @@ void Layer::geometryChanged(const QRectF &newGeometry, const QRectF &oldGeometry
     QQuickItem::geometryChanged(newGeometry, oldGeometry);
 }
 
-void Layer::componentComplete()
+void Layer::classBegin()
 {
-    // this activates the item layered mode
+    QQuickItem::classBegin();
     QQmlProperty(this, "layer.enabled").write(true);
-
-    QQuickItem::componentComplete();
 }
 
 void Layer::update(const int &delta)

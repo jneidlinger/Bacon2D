@@ -187,6 +187,8 @@ ImageLayer::ImageLayer(Layer *parent)
     : Layer((QQuickItem *)parent)
     , m_imageWidth(0)
     , m_imageHeight(0)
+    , m_horizontalOffset(0)
+    , m_verticalOffset(0)
     , m_geometryChanged(false)
 {
     setFlag(ItemHasContents, true);
